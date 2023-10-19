@@ -75,6 +75,8 @@ export async function GET(req: Request) {
 
     const session = await stripe.checkout.sessions.listLineItems(sessionId);
     const sessionDetails = await stripe.checkout.sessions.retrieve(sessionId);
+    console.log("🚀 ~ file: route.tsx:77 ~ GET ~ session:", session)
+    console.log("🚀 ~ file: route.tsx:78 ~ GET ~ sessionDetails:", sessionDetails)
 
     const data = orderData(
       sessionDetails?.customer_details,
